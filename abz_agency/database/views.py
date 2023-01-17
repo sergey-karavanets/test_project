@@ -9,6 +9,13 @@ def employee(request):
 
 
 def search_results(request):
-    data = Employee.objects.filter(
-        Q(name__icontains='Smith') | Q(position__icontains='Barrister') | Q(employment_date__icontains='2017') | Q(salary__icontains='61000'))
+    query = request.GET.get('q')
+    if query is None:
+        data = Employee.objects.all()
+    else:
+        data = Employee.objects.filter(
+            Q(name__icontains=query) |
+            Q(position__icontains=query) |
+            Q(employment_date__icontains=query) |
+            Q(salary__icontains=query))
     return render(request, 'database/search.html', {'data': data})
