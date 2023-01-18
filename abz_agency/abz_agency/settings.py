@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'database.apps.DatabaseConfig',
     'django_filters',
     'users.apps.UsersConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
