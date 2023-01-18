@@ -18,4 +18,4 @@ def search_results(request):
             Q(position__icontains=query) |
             Q(employment_date__icontains=query) |
             Q(salary__icontains=query))
-    return render(request, 'database/search.html', {'title': 'Search', 'data': data})
+    return render(request, 'database/search.html', {'title': 'Searching results', 'data': data})
