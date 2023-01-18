@@ -15,7 +15,7 @@
     <script type="text/javascript" src="static/database/js/script.js"></script>
 </head>
 <body>
-    <h1>Employees</h1>
+    <h1>{{ title }}</h1>
         <form action="{% url 'search' %}" method="get">
             <input name="q" type="text" placeholder="Search..." class="form-control">
         </form>
