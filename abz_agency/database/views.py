@@ -19,3 +19,8 @@ def search_results(request):
             Q(employment_date__icontains=query) |
             Q(salary__icontains=query))
     return render(request, 'database/search.html', {'title': 'Searching results', 'data': data})
+
+
+def tree(request):
+    data = Employee.objects.all()
+    return render(request, 'database/tree.html', {'title': 'Tree', 'data': data})
