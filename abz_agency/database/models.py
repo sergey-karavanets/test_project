@@ -7,6 +7,7 @@ class Employee(models.Model):
     position = models.CharField(max_length=50)
     employment_date = models.DateField(auto_now_add=False)
     salary = models.PositiveIntegerField()
+    chief = models.CharField(max_length=50)
 
     class Meta:
         verbose_name_plural = 'staff'
