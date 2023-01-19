@@ -17,11 +17,11 @@
 <body>
 <div>
     {% if user.is_authenticated %}
-    <a type="button" class="btn btn-outline-primary" href="{% url 'profile' %}">Профиль</a>
-    <a type="button" class="btn btn-outline-primary" href="{% url 'logout' %}">Выход</a>
+    <a type="button" class="btn btn-outline-primary" href="{% url 'profile' %}">Profile</a>
+    <a type="button" class="btn btn-outline-primary" href="{% url 'logout' %}">Logout</a>
     {% else %}
-    <a type="button" class="btn btn-outline-primary" href="{% url 'login' %}">Вход</a>
-    <a type="button" class="btn btn-outline-primary" href="{% url 'register' %}">Регистрация</a>
+    <a type="button" class="btn btn-outline-primary" href="{% url 'login' %}">Login</a>
+    <a type="button" class="btn btn-outline-primary" href="{% url 'register' %}">Registration</a>
     {% endif %}
 </div>
 {% if messages %}
