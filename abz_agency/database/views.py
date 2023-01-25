@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import *
 from django.db.models import Q
+from .tree import EmployeeTree
 
 
 def employee(request):
@@ -22,5 +23,5 @@ def search_results(request):
 
 
 def tree(request):
-    data = Employee.objects.all()
+    data = list(filter(lambda x: x.chief == 'Owner', list(map(lambda x: EmployeeTree(x, Employee.objects.all()), Employee.objects.all()))))
     return render(request, 'database/tree.html', {'title': 'Tree', 'data': data})
