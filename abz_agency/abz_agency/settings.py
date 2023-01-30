@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django_filters',
     'users.apps.UsersConfig',
     'crispy_forms',
+    'mptt',
 ]
 
 MIDDLEWARE = [
