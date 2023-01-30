@@ -1,16 +1,16 @@
 from django.db import models
-import django_filters
+from mptt.models import MPTTModel, TreeForeignKey
 
 
-class Employee(models.Model):
-    name = models.CharField(max_length=50)
+class Employee(MPTTModel):
+    name = models.CharField(max_length=50, unique=True)
     position = models.CharField(max_length=50)
     employment_date = models.DateField(auto_now_add=False)
     salary = models.PositiveIntegerField()
-    chief = models.CharField(max_length=50)
+    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
 
-    class Meta:
-        verbose_name_plural = 'staff'
+    class MPTTMeta:
+        order_insertion_by = ['name']
 
     def __str__(self):
-        return self.name
+        return str(self.id) + ' Name: ' + self.name
