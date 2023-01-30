@@ -1,30 +1,17 @@
 {% extends 'database/base.html' %}
 
 {% block content %}
-<h1>{{ title }}</h1>
-<form action="{% url 'search' %}" method="get">
-    <input name="q" type="text" placeholder="Search..." class="form-control">
-</form>
-<table class="table table-striped table-bordered" id="myTable">
-    <thead>
-    <tr class="table-dark">
-        <th>Name</th>
-        <th>Position</th>
-        <th>Employment date</th>
-        <th>Salary</th>
-        <th>Chief</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for d in data %}
-    <tr>
-        <td>{{ d.name }}</td>
-        <td>{{ d.position }}</td>
-        <td>{{ d.employment_date }}</td>
-        <td>{{ d.salary }}</td>
-        <td>{{ d.chief }}</td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
+{% load mptt_tags %}
+<ul>
+    {% recursetree employees %}
+        <li>
+            {{ node.name }}
+            {% if not node.is_leaf_node %}
+                <ul class="children">
+                    {{ children }}
+                </ul>
+            {% endif %}
+        </li>
+    {% endrecursetree %}
+</ul>
 {% endblock %}
