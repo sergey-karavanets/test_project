@@ -23,5 +23,4 @@ def search_results(request):
 
 
 def tree(request):
-    data = list(filter(lambda x: x.chief == 'Owner', list(map(lambda x: EmployeeTree(x, Employee.objects.all()), Employee.objects.all()))))
-    return render(request, 'database/tree.html', {'title': 'Tree', 'data': data})
+    return render(request, "database/tree.html", {'employees': Employee.objects.all()})
