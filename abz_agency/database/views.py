@@ -6,7 +6,8 @@ from .tree import EmployeeTree
 
 def employee(request):
     data = Employee.objects.all()
-    return render(request, 'database/index.html', {'title': 'Employee', 'data': data})
+    return render(request, 'database/index.html', {'title': 'Employee information',
+                                                   'data': data})
 
 
 def search_results(request):
@@ -19,8 +20,10 @@ def search_results(request):
             Q(position__icontains=query) |
             Q(employment_date__icontains=query) |
             Q(salary__icontains=query))
-    return render(request, 'database/search.html', {'title': 'Searching results', 'data': data})
+    return render(request, 'database/search.html', {'title': 'Searching results',
+                                                    'data': data})
 
 
 def tree(request):
-    return render(request, "database/tree.html", {'employees': Employee.objects.all()})
+    return render(request, "database/tree.html", {'title': 'Employee Tree',
+                                                  'employees': Employee.objects.all()})
