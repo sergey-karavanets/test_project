@@ -5,6 +5,8 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'abz_agency.settings')
 django.setup()
 
 
+import shutil
+import string
 from faker import Faker
 import random
 from database.models import Employee
