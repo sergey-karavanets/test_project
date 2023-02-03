@@ -58,7 +58,13 @@ def main():
         position = fake.job()
         employment_date = fake.date()
         salary = random.randint(100, 1000) * 100
-        Population(name, position, employment_date, salary)
+        random_photo = random.choice(photo_name)
+        random_letters = ''.join(random.choice(letters) for i in range(10))
+        original_photo = 'media/avatars/' + random_photo + '.jpg'
+        target = 'media/images/' + random_photo + '_' + random_letters + '.jpg'
+        employment_photo = target.replace('media/', '')
+        shutil.copyfile(original_photo, target)
+        Population(name, position, employment_date, salary, employment_photo)
 
 
 if __name__ == '__main__':
