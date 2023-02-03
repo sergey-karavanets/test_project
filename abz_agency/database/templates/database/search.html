@@ -12,6 +12,7 @@
         <th>Position</th>
         <th>Employment date</th>
         <th>Salary</th>
+        <th>Photo</th>
     </tr>
     </thead>
     <tbody>
@@ -21,6 +22,10 @@
         <td>{{ d.position }}</td>
         <td>{{ d.employment_date }}</td>
         <td>{{ d.salary }}</td>
+        <td>{% if d.employment_photo %}
+            <img src="{{ d.employment_photo.url }}" align="middle" width="80" height="80">
+            {% endif %}
+        </td>
     </tr>
     {% endfor %}
     </tbody>
