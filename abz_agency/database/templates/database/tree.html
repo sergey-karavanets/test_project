@@ -5,14 +5,18 @@
 {% load mptt_tags %}
 <ul>
     {% recursetree employees %}
-        <li class="tr-text">
-            <div class="tr-block">{{ node.name }}, Position - {{ node.position }}, Salary - {{ node.salary }}</div>
-            {% if not node.is_leaf_node %}
-                <ul class="children">
-                    {{ children }}
-                </ul>
-            {% endif %}
-        </li>
+    <li class="tr-text">
+        <div class="tr-block">{{ node.name }},
+            Position - {{ node.position }},
+            Employment date - {{ node.employment_date }}
+            Salary - {{ node.salary }}
+        </div>
+        {% if not node.is_leaf_node %}
+        <ul class="children">
+            {{ children }}
+        </ul>
+        {% endif %}
+    </li>
     {% endrecursetree %}
 </ul>
 {% endblock %}
