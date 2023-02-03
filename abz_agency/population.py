@@ -49,7 +49,7 @@ class Population:
                                     salary=self.salary,
                                     employment_photo=self.employment_photo,
                                     parent=self.parent)
-            print(f'{self.name} employer add to database. Her parent {self.parent}')
+            print(f'{self.name} employer add to database. Her parent {self.parent.name}')
 
 
 def main():
