@@ -25,11 +25,13 @@ class Population:
             self.position = position
             self.employment_date = employment_date
             self.salary = 200000
+            self.employment_photo = employment_photo
             self.parent = None
             Employee.objects.create(name=self.name,
                                     position=self.position,
                                     employment_date=self.employment_date,
                                     salary=self.salary,
+                                    employment_photo=self.employment_photo,
                                     parent=None)
             print(f'Create owner {self.name}')
         else:
@@ -37,6 +39,7 @@ class Population:
             self.position = position
             self.employment_date = employment_date
             self.salary = salary
+            self.employment_photo = employment_photo
             self.parent = random.choice(list(Employee.objects.all()))
             if Employee.objects.filter(name=self.name) == self.name:
                 self.parent = None
@@ -44,6 +47,7 @@ class Population:
                                     position=self.position,
                                     employment_date=self.employment_date,
                                     salary=self.salary,
+                                    employment_photo=self.employment_photo,
                                     parent=self.parent)
             print(f'{self.name} employer add to database. Her parent {self.parent}')
 
