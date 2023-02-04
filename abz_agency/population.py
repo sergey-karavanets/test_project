@@ -56,6 +56,8 @@ def main():
     for _ in range(int(input('How many employees to add to the database?: '))):
         name = fake.name()
         position = fake.job()
+        if len(position) > 50:
+            position = position[:50]
         employment_date = fake.date()
         salary = random.randint(100, 1000) * 100
         random_photo = random.choice(photo_name)
