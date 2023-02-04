@@ -20,7 +20,7 @@ fake = Faker()
 class Population:
 
     def __init__(self, name, position, employment_date, salary, employment_photo):
-        if list(Employee.objects.all()) is None:
+        if len(Employee.objects.all()) == 0:
             self.name = name
             self.position = position
             self.employment_date = employment_date
